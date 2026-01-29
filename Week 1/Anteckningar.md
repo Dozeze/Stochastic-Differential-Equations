@@ -8,7 +8,7 @@ Stokastiska differential ekvationer kan användas i:
 
 * Maskininlärning
 
-... och mycket mer. Nedan visas exempel på hur det kan användas:
+... och mycket mer. Nedan visas ett exempel på hur det kan användas:
 
 
 **Noisy evoluation of stocks**
@@ -30,6 +30,19 @@ Detta ger oss då:
 
 $$\frac{dS(t)}{dt} = (r(t) + \epsilon)S(t) = r(t)S(t) + \epsilon S(t)$$
 
-vilken kan diskretiseras som:
+Ett exempel på en modell som modellerar denna störning är differential ekvationen:
 
-$$S_{n+1} - S_{n} = \delta t r_n s_n + \epsilon s_n \delta t$$
+$$\Delta S(t) = r(t)S(t) \Delta t + \sigma S(t) \Delta W(t)$$
+
+Ifall vi använder Eulers stegmetod (Euler forward) så kan vi diskritisera ekvationen som:
+
+$$S_{n+1} - S_{n} = r_n S_n \Delta t + S_n \sigma_n \Delta W_n$$
+
+Notera att vi till exempel kan använda att:
+
+$$\mathbb{E}[ \Delta W_n ] = 0, \text{Var}[\Delta W_n] = t_{n+1} - t_{n} = \Delta t_n$$
+
+**The Coarse-graining and Discretization Analysis**
+
+
+
