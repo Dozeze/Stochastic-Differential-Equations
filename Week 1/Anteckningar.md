@@ -93,8 +93,56 @@ Vi har att för $n \in \mathbb{Z}_{>0}$ så gäller det att $U > 1/3$, och $L < 
 
 Syftet varför vi definierade Riemanintegralen var för att ifall vi antar att $W(t)$-funktionen är Riemann integrerbar, så ska:
 
-$$\sum_{i=0}^n W(t_i) (W_{t_{i-1}} - W_{t_i}) = \sum_{i=0}^n W(t_{i-1}) (W_{t_{i-1}} - W_{t_i})$$.
+$$\sum_{i=0}^n W(t_i) (W_{t_{i+1}} - W_{t_i}) = \sum_{i=0}^n W(t_{i+1}) (W_{t_{i+1}} - W_{t_i})$$.
 
 Men det finns inte mycket att säga om denna integral, men eftersom att vi har antagit att den är Riemann-integrerbar, så borde ändå $\mathbb{E}[VL] = \mathbb{E}[HL]$, där VL = Vänsterled, HL = Högerled. Låt oss därför undersöka det:
 
-$$\mathbb{E}[VL] = \mathbb{E}[\sum_{i=0}^n W(t_i) (W_{t_{i-1}} - W_{t_i})] = $$
+$$\mathbb{E}[VL] = \mathbb{E}[\sum_{i=0}^n W(t_i) (W_{t_{i+1}} - W_{t_i}) ] = \sum_{i=0}^n \mathbb{E}[W(t_i) (W_{t_{i+1}} - W_{t_i}) ] = \sum_{i=0}^n \mathbb{E}[(W(t_i) - W(t_0)) (W_{t_{i+1}} - W_{t_i}) ] = $$
+
+[Inkrementen är oberoende av varandra]
+
+$$\sum_{i=0}^n (\mathbb{E}[(W(t_i) - W(t_0))] \mathbb{E}[(W_{t_{i+1}} - W_{t_i}) ]) = \sum_{i=0}^n (\mathbb{E}[(W(t_i) - W(t_0))] \cdot 0 = 0$$
+
+Alltså är integralen lika med noll. Låt oss undersöka väntevärdet av HL:
+
+$$\mathbb{E}[\sum_{i=0}^n W(t_{i+1}) (W_{t_{i+1}} - W_{t_i})] = \mathbb{E}[\sum_{i=0}^n W(t_{i+1}) (\Delta W_{t_i})] = \mathbb{E}[\sum_{i=0}^n (W(t_{i+1}) - W(t_i) + W(t_i)) (\Delta W_{t_i})] = $$
+$$\mathbb{E}[\sum_{i=0}^n (\Delta W_{t_i}) + W(t_i)) (\Delta W_{t_i})] = \sum_{i=0}^n \mathbb{E}[(\Delta W_{t_i}) + W(t_i)) (\Delta W_{t_i})] = \sum_{i=0}^n \mathbb{E}[(\Delta W_{t_i})^2 + W(t_i)(\Delta W_{t_i}))] = $$
+$$\sum_{i=0}^n (\mathbb{E}[\Delta W_{t_i})^2] + \mathbb{E}[W(t_i)(\Delta W_{t_i})]) = (0^2 + t^2) + 0 = t^2$$
+
+Det är alltså ganska klart att $\mathbb{E}[VL] \neq \mathbb{E}[HL]$. Detta är ett problem för att ifall vi har definierat en integral som en Riemannsumma så får vi två olika svar. Vi vill därför definiera integralen med hjälp av någon diskretisering, och så håller vi oss fast vid den definitionen OM den existerar. Hur vi tar reda på ifall den existerar är att vi abstrakt definierar integralen på ett visst sätt, och så kollar vi ifall den konvergerar i ett visst rum. Ifall den gör det, så existerar den i det rummet, och då kan vi extrahera en massa egenskaper utifrån det där rummet och använda matematik för att komma fram till olika slutsatser som gynnar vårt arbete.
+
+Vi börjar med att definiera en funktion som är Lischnitz kontinuerlig (som implicerar att funktionen är kontinuerlig och inte ändras mycket när vi ändrar lite i våra koordinater). Dvs:
+
+$$|f(t + \Delta t, W + \Delta W) - f(t, w)| \leq C( \Delta t + | \Delta W | )$$
+
+Eftersom att den beror på vår Wiener process och vårt tidsintervall, så kan vi säga att funktionen ger oss en stokastisk process. En stokastisk process är en process $P = (P_0, \dots, P_n)$ där varje element är stokastisk. Till exempel kan vi sätta $f(W_t, t) = W_t + t$. Det är mer eller mindre en funktion som är stokastisk, och processen är att den ändras med tiden, och vi kan indicera varje punkt som $P_n$. Med detta sagt så ska vi tillbaka till vad vi ville göra. Vi ville definiera en stokastisk integral. Så vad vi vill göra är att vi vill definiera en integral genom att säga att:
+
+$$I = \sum_{i=0}^n f(W(t_n), t_{n})(W(t_{n+1}) - W(t_n))$$.
+
+Det vill säga; vår integral definieras som Euler framåt approximationen av den riktiga integralen. Det går att definiera den som Euler bakåt, eller andra approximationer av integralen, men just nu så säger vi att integralen defnieras som Euler framåt approximationen av integralen. Ifall vi tar två partitioner av t:
+
+$$(\bar{t})_{i=1}^{\bar{N}}, \bar{t}_0 = 0, \bar{t}\_{\bar{N}} = T$$
+
+,och
+
+$$(\bar{\bar{t}})_{i=1}^{\bar{\bar{N}}}, \bar{\bar{t}}_0 = 0, \bar{\bar{t}}\_{\bar{\bar{N}}} = T$$,
+
+så kan vi använda dem för att definiera två diskretiseringar av samma integral med Euler framåt:
+
+$$\bar{I} = \sum_{n=0}^{\bar{N}} f(W(\bar{t}_n, \bar{t}_n) (W(\bar{t}\_{n+1} - W(\bar{t}_n)))$$,
+
+och
+
+$$\bar{\bar{I}} = \sum_{n=0}^{\bar{\bar{N}}} f(W(\bar{\bar{t}}_n, \bar{\bar{t}}_n) (W(\bar{\bar{t}}\_{n+1} - W(\bar{\bar{t}}_n)))$$.
+
+Ifall vi låter $\Delta t_{max}$ vara det största steget i båda partitionerna, dvs:
+
+$$\Delta t_{max} = \max ( \max_{n} \bar{t}_{n+1} - \bar{t}_n, \max\_{\bar{n}} \bar{\bar{t}}\_{n+1} - \bar{\bar{t}}_n )$$
+
+så går det att visa att väntevärdet mellan skillnaden av dessa integraler i kvadrat kommer alltid vara mindre eller lika med $\Delta t_{max}$. Dvs:
+
+$$\mathbb{E}[(\bar{I} - \bar{\bar{I}})^2] \leq \Delta t_{max}$$.
+
+Vad detta säger är att ifall $\Delta t_{max} \rightarrow 0$ så konvergerar dessa två approximerade integraler mot varandra. Med andra ord så är detta är en Cauchysekvens, och då vet vi att sekvensen konvergerar. Vi definierar nu:
+
+"Ito integralen" som gränsen av denna Cauchy sekvens. 
