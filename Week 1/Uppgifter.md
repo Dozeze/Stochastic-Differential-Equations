@@ -21,7 +21,7 @@ $$\lim_{u \rightarrow 0^{+}} \frac{1}{\sqrt{u}} \int_{-\infty}^{\infty} |x|\frac
 
 ## Visa att $\lim_{N \rightarrow \infty} \mathbb{E}[\sup_{0 \leq t_0 \leq \dots \leq t_N = 1} \sum_{n=0}^{N-1} |W(t_{n+1}) - W(t_{n})|] \rightarrow \infty$. 
 
-Vad detta implicerar är att Wiernerprocessen har en oändlig total variation. En snabb sammanfattning av "Total variation" är att givet en funktion så vill vi undersöka hur "smooth" den är. Ifall vår totala variation är ändlig så säger det att den är rätt "smooth", och vice versa. Ett fraktal är ett exempel på en funktion som har oändlig total variation.
+Vad detta implicerar är att Wiernerprocessen har en oändlig total variation. En snabb sammanfattning av "Total variation" är att givet en funktion så vill vi undersöka hur "slät" den är. Ifall vår totala variation är ändlig så säger det att den är rätt "slät", och vice versa. Ett fraktal är ett exempel på en funktion som har oändlig total variation.
 
  Bevis:
 
