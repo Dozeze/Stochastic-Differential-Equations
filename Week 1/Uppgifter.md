@@ -40,5 +40,38 @@ $$\lim_{n \rightarrow \infty} N \mathbb{E}[| W(t_{n+1}) - W(t_n) |] = \lim_{n \r
 
 ## Visa med Euler framåt att $\int_0^T s dW(s) = TW(t) - \int_0^T W(s)ds.$
 
-   
+Notera att Euler framåt för en funktion $f(t)$ från 0 till T kan skrivas som:
 
+$$I := \int_0^T f(t)dt = \sum_{n=0}^{N-1}f(t_{n})(t_{n+1} - t_n)$$
+
+Och för Euler bakåt:
+   
+$$I := \int_0^T f(t)dt = \sum_{n=0}^{N-1}f(t_{n+1})(t_{n+1} - t_n)$$
+
+Med detta, låt oss nu hitta $\int_0^T s dW(s)$:
+
+$$\int_0^T s dW(s) = \sum_{n=0}^{N-1} t_n(W(t_{n+1}) - W({t_n})) = \sum_{n=1}^{N-1} t_n(W(t_{n+1}) - W({t_n}))$$
+
+ty $t_0 = 0$.
+
+Vi delar upp integralen och får:
+
+$$\sum_{n=1}^{N-1} t_nW(t_{n+1}) - \sum_{n=1}^{N-1} t_n(W({t_n}))$$
+
+Vi byter indexet från $0$ istället för $1$:
+
+
+$$\sum_{n=1}^{N-1} t_nW(t_{n+1}) - \sum_{n=0}^{N-2} t_{n+1}(W(t_{n+1}))$$
+
+och utnyttjar återigen att $t_0 = 0$:
+
+
+$$\sum_{n=0}^{N-1} t_nW(t_{n+1}) - \sum_{n=0}^{N-2} t_{n+1}(W(t_{n+1}))$$
+
+Notera att vi går från $0$ till $N-2$ i den andra termen, och vill att den ska gå från $0$ till $N-1$. Vi gör det, men måste då addera det sista elementet (notera att den andra termen är negativ).
+
+$$\sum_{n=0}^{N-1} t_nW(t_{n+1}) - \sum_{n=0}^{N-1} t_{n+1}(W(t_{n+1})) + T_N W(T_N) = \sum_{n=0}^{N-1} t_nW(t_{n+1}) - \sum_{n=0}^{N-1} t_{n+1}(W(t_{n+1}) - W(t_n)) + T_N W(T_N)$$
+
+Och sen så använder vi att integralen också kan ges av $I = \int_0^T W(s)ds = \sum_{n=0}^{N-1} t_{n+1}(W(t_{n+1}) - W(t_n))$, och får:
+
+$$T_N W(T_n) - \int_0^T W(s)ds$$
