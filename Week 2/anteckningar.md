@@ -35,3 +35,38 @@ Om $f,g$ är ito integrerbara, är anpassade, är Lipschitz kontinuerliga, $a,b 
 2) Väntevärde noll: $\mathbb{E}[\int_0^T f(t)dW(t)] = 0$
 
 3) Isometri: $\mathbb{E}[\int_0^T f(t)dW(t) \int_0^T g(t)dW(t)] = \int_0^T \mathbb{E}[f(t)g(t)]dt$
+
+##
+**Stokastiska differential ekvationer**
+
+Eulers metod:
+
+Är ett sätt att estimera en ODE. Låt till exempel $y(t)$ vara en funktion. För att hitta $y(t)$ så kan vi diskritisera den. Då får vi tidsintervall: $t_0 \leq t_1 \leq \dots \leq t_N$. Med Eulers metod så kan vi lösa varje punkt $y(t_n)$:
+
+$$y(t_{n+1}) = y(t_n) + \delta t y'(t_n)$$
+
+Ifall vi skriver den approximerade funktionen som $\bar{y}(t)$ så får vi att felet: $|y(t) - \bar{y}(t)| = \mathcal{O}(\Delta t^2}$.
+
+Hur som helst så kan vi definiera en funktion som rör sig i tiden. Låt oss kalla den funktionen för $X(t)$. Notera att den beror på tiden $t$. Men vi vill modellera den så att den dels beror på en funktion som rör sig i tiden, och en annan funktion som rör sig lite slumpmässigt.
+
+Låt oss därför skriva:
+
+$$dX(t) = a(t, X(t))dt + b(t, X(t))dW(t)$$
+
+Vad den säger är att ifall vi rör $X(t)$ en liten bit, så kommer den att bero på en funktion $a(t, X(t))$ som rör sig i tiden, och en annan funktion $b(t, X(t))$ som rör sig lite slumpmässigt - precis som vi ville! Men hur ska vi approximera den? Vad vi kan göra är att vi kan använda oss av Eulers metod för att lösa $X(t_n)$ för något tidsintervall $t_0 \leq \dots \leq t_N$. Enligt Eulers metod så får vi då diskretiseringen:
+
+$$X_{n+1} - X_n = a(t_n, X_n)(t_{n+1} - t_n) + b(t_n, X_n)(W(t_{n+1}) - W(t_n)) = a(t_n, X_n)\Delta t_n + b(t_n, X_n) \Delta W(t_n)$$
+
+Men en fråga uppstår, och det är - konvergerar denna funktion för Euler framåt? Normalt så gör den det, men vi har en funktion vars förändring beror på tiden och en stokastisk process. Den stokastiska processen har potentiellt oändligt många lösningar eftersom att den kan röra sig annorlunda i varje tidssteg. Så vad vi vill göra är att vi vill kolla ifall $\mathbb{E}[|X(t) - \hat{X}(t)|^2] \rightarrow 0$ när $\Delta t \rightarrow 0$; dvs att den konvergerar i L2. Detta kallas för "Strong convergence". Ett annat sätt att göra det är genom att skapa en Cauchy sekvens .... ( Fortsätt förklara detta ).
+
+Vi kommer göra detta vecka 3. Notera att ifall vi sätter restriktioner på funktionerna $a$, $b$ och en massa andra saker:
+
+1) $\leq C \Delta t_{\text{max}}$
+
+etc..
+
+Så får vi konvergens:
+
+$$\mathbb{E}[()^2] \leq C \Delta t_{\text{max}}$$
+
+Låt oss visa att vi också kan visa konvergens på ett annat sätt (se vecka 3).
