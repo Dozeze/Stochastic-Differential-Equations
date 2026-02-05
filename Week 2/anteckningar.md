@@ -61,7 +61,7 @@ Men en fråga uppstår, och det är - konvergerar denna funktion för Euler fram
 
 $$\sqrt{\mathbb{E}[|X(t) - \bar{X}(t)|^2]} = \mathcal{O}(\sqrt{\Delta t})$$
 
-Ett annat sätt för att visa konvergens är genom att skapa en Cauchysekvens, och sedan visa att den konvergerar i L2. Vi kommer göra detta vecka 3. Men notera att det snabbt går att visa att $X(t)$ konvergerar ifall vi sätter restriktioner på hur $a(t)$, $b(t)$, och hur $X(t)$ får bete sig. Vi gör detta nu:
+Ett annat sätt för att visa konvergens är genom att skapa en Cauchysekvens, och sedan visa att den konvergerar i L2. Vi kommer visa stegen vecka 3. Men notera att $X(t)$ konvergerar, och teorin ser ut så här:
 
 Låt $\bar{X}(t)$ och $\bar{\bar{X}}(t)$ vara två Euler approximationer av $X(t)$ som uppfyller:
 
@@ -83,4 +83,4 @@ så går det att visa ett det existerar ett $K$ sådana att $\max (\mathbb{E}[|\
 
 $$\mathbb{E}[(X(t, \cdot) - \bar{X}(t, \cdot))^2] \leq K t_{\text{max}} = \mathcal{O}(\Delta t_{\text{max}})$$
 
-Alltså; ifall våra funktioner uppfyller allt ovan så konvergerar $X(t)$. Men det går också att visa konvergens på ett annat sätt (se vecka 3).
+Alltså; ifall våra funktioner uppfyller allt ovan så konvergerar $X(t)$. Stegen visas vecka 3.
