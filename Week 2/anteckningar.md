@@ -57,16 +57,30 @@ Vad den säger är att ifall vi rör $X(t)$ en liten bit, så kommer den att ber
 
 $$X_{n+1} - X_n = a(t_n, X_n)(t_{n+1} - t_n) + b(t_n, X_n)(W(t_{n+1}) - W(t_n)) = a(t_n, X_n)\Delta t_n + b(t_n, X_n) \Delta W(t_n)$$
 
-Men en fråga uppstår, och det är - konvergerar denna funktion för Euler framåt? Normalt så gör den det, men vi har en funktion vars förändring beror på tiden och en stokastisk process. Den stokastiska processen har potentiellt oändligt många lösningar eftersom att den kan röra sig annorlunda i varje tidssteg. Så vad vi vill göra är att vi vill kolla ifall $\mathbb{E}[|X(t) - \hat{X}(t)|^2] \rightarrow 0$ när $\Delta t \rightarrow 0$; dvs att den konvergerar i L2. Detta kallas för "Strong convergence". Ett annat sätt att göra det är genom att skapa en Cauchy sekvens .... ( Fortsätt förklara detta ).
+Men en fråga uppstår, och det är - konvergerar denna funktion för Euler framåt? Normalt så gör den det, men vi har en funktion vars förändring beror på tiden och en stokastisk process. Den stokastiska processen har potentiellt oändligt många lösningar eftersom att den kan röra sig annorlunda i varje tidssteg. Så vad vi vill göra är att vi vill kolla ifall $\mathbb{E}[|X(t) - \bar{X}(t)|^2] \rightarrow 0$ när $\Delta t \rightarrow 0$; dvs att den konvergerar i L2. Detta kallas för "strong convergence" eller den starka konvergensen. Notera att ifall vi matematiskt vill beskriva den starka konvergensen så kan man skriva den som:
 
-Vi kommer göra detta vecka 3. Notera att ifall vi sätter restriktioner på funktionerna $a$, $b$ och en massa andra saker:
+$$\sqrt{\mathbb{E}[|X(t) - \bar{X}(t)|^2]} = \mathcal{O}(\sqrt{\Delta t})$$
 
-1) $\leq C \Delta t_{\text{max}}$
+Ett annat sätt för att visa konvergens är genom att skapa en Cauchysekvens, och sedan visa att den konvergerar i L2. Vi kommer göra detta vecka 3. Men notera att det snabbt går att visa att $X(t)$ konvergerar ifall vi sätter restriktioner på hur $a(t)$, $b(t)$, och hur $X(t)$ får bete sig. Vi gör detta nu:
 
-etc..
+Låt $\bar{X}(t)$ och $\bar{\bar{X}}(t)$ vara två Euler approximationer av $X(t)$ som uppfyller:
 
-Så får vi konvergens:
+$$dX(t) = a(t, X(t))dt + b(t, X(t))dW(t)$$
 
-$$\mathbb{E}[()^2] \leq C \Delta t_{\text{max}}$$
+för $0 \leq t \leq T$ med tidsstegen $(\bar{t})_{n=0}^{\bar{N}}$, där $\bar{t}_0 = 0$ och $\bar{t}_N = T$, respektive $( \bar{\bar{t}})\_{n=0}^{\bar{\bar{N}}}$, där $\bar{\bar{t}}_0 = 0$ och $\bar{\bar{t}}_N = T$. Låt nu $\Delta t\_{\text{max}} = \max(\max_n \Delta \bar{t}_n, \max_n \Delta \bar{\bar{t}}_n)$, och låt våra funktion uppfylla:
 
-Låt oss visa att vi också kan visa konvergens på ett annat sätt (se vecka 3).
+* $\mathbb{E}[|\bar{X}(0)|^2 + |\bar{\bar{X}}(0)|^2] \leq C$
+
+* $\mathbb{E}[(\bar{X}(0)^2 - \bar{\bar{X}}(0))^2] \leq C t_{\text{max}}$
+
+* $|a(t, x) - a(t,y)| \leq C |x - y|$
+
+* $|b(t, x) - b(t,y)| \leq C |x - y|$
+
+* $|a(t, x) - a(t,y)| + |b(t, x) - b(t,y)| \leq C(1 + |x|) \sqrt{|t - s|}$,
+
+så går det att visa ett det existerar ett $K$ sådana att $\max (\mathbb{E}[|\bar{X}^2(t, \cdot)|], \mathbb{E}[|\bar{\bar{X}}^2(t, \cdot)|]) \leq K(T+1)$ för $t < T$. Med detta så går det att visa att:
+
+$$\mathbb{E}[(X(t, \cdot) - \bar{X}(t, \cdot))^2] \leq K t_{\text{max}} = \mathcal{O}(\Delta t_{\text{max}})$$
+
+Alltså; ifall våra funktioner uppfyller allt ovan så konvergerar $X(t)$. Men det går också att visa konvergens på ett annat sätt (se vecka 3).
