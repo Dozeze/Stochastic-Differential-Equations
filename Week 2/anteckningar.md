@@ -45,7 +45,7 @@ Eulers metod:
 
 $$y(t_{n+1}) = y(t_n) + \delta t y'(t_n)$$
 
-Ifall vi skriver den approximerade funktionen som $\bar{y}(t)$ så får vi att felet: $|y(t) - \bar{y}(t)| = \mathcal{O}(\Delta t^2}$.
+Ifall vi skriver den approximerade funktionen som $\bar{y}(t)$ så får vi att felet: $|y(t) - \bar{y}(t)| = \mathcal{O}(\Delta t^2)$.
 
 Hur som helst så kan vi definiera en funktion som rör sig i tiden. Låt oss kalla den funktionen för $X(t)$. Notera att den beror på tiden $t$. Men vi vill modellera den så att den dels beror på en funktion som rör sig i tiden, och en annan funktion som rör sig lite slumpmässigt.
 
