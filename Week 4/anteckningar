@@ -1,0 +1,37 @@
+Föreläsning 4
+
+Innehåller:
+
+* Bevis för Itos formel
+
+* Geometrisk BM: $d S_t = \mu S_t dt + \sigma S_t dW_t$
+
+* Weak/Strong konvergens
+
+* Feynman K. formel / Kolmogorov bakåt ekvationer
+
+* Exempel, analogier till deterministiska fall
+
+* Black Scholes, pris av europeiska "option"
+
+##
+
+**Itos formel**
+
+Låt $X_t$ lösa differnetialekvationen $dX_t = a_t dt + b_t dW_t$, där $t \leq T$, $X_0 = x$, och $a,b$ är funktioner som uppfyller villkoren för konvergens för SDE, och $\mathbb{E}[a^4_t + b^4_t] < \infty$.
+
+Då gäller för en två ggr deriverbar funktion, $g \in C^2([0,T]^2 \times \mathbb{R}, \mathbb{R})$, $y_t = g(t, x_t)$ uppfyller:
+
+
+$$dy_t (d_t \g_t + a_t d_x g_t + \frac{1}{2} b_t^2d_x^2g_t)dt + b_t d_xg_td_W_t$$
+
+$$y_0 = g(0, X_0)$$
+
+där vi antar att $d_xg, d_tg,d_x^2g, d_xd_t g, d_t^2g, g=x^2$ ??
+
+Bevis:
+
+... (Finns i anteckningar)
+
+
+
