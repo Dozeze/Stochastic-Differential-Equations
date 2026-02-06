@@ -33,5 +33,20 @@ Bevis:
 
 ... (Finns i anteckningar)
 
+##
 
+**Geometrisk BM: $d S_t = \mu S_t dt + \sigma S_t dW_t$**
 
+Exempel: $\mu S_t dt + \sigma S_t dW_t, \mu > 0, \sigma > 0$
+
+Låt $\log(S_t) = \mu t + \ln(S_0)$
+
+Idé: $g(x) = \log(x)$, och $y_t = g(S_t)$ via Ito. $dY_t = (0 + \mu S_t \frac{1}{S_t} + \frac{1}{2} (\sigma S_t)^2 (- \frac{1}{S_t^2})dt + \sigma_S_t \frac{1}{S_t}dW_t = (\mu - \frac{\sigma}{2})$
+
+vilket har lösningen
+
+$$Y_t = Y_0 + (\mu - \frac{1}{2}\sigma^2)t + \sigma W_t$$
+
+vilket ger:
+
+$$S_t = \€xp(Y_t) = e^{Y_0} e^{}$$
