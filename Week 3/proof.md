@@ -7,7 +7,7 @@ För att visa att det existerar en lösning för en stokastisk differentialekvat
 **Def: Cauchy sekvens**
 Låt $A_1, A_2, \dots$ vara en sekvens i ett rum, $(A, d)$, så säger vi att sekvensen är Cauchy ifall för varje $\epsilon > 0$ så existerar $n,m \in \mathbb{N}$ s.a. $d(A_n, A_m) < \epsilon$
 
-Notera att i vårt rum, så är $(A,d)$ lika med $Y : [0,1] \times \Omega \rightarrow \mathbb{R}^d$, där $A$ är någon stokastisk process $ $d(A,B) = \sqrt{\mathbb{E}[|A - B|^2]}$, och detta rum är komplett.
+Notera att i vårt rum, så är $(A,d)$ lika med $Y : [0,1] \times \Omega \rightarrow \mathbb{R}^d$, där $A$ är någon stokastisk process $d(A,B) = \sqrt{\mathbb{E}[|A - B|^2]}$, och detta rum är komplett.
 
 ##
 
@@ -33,6 +33,10 @@ Ifall vi definierar funktionen $\bar{a}(s, .) = \sum_{n=0}^{N-1} a(\bar{t}_n, \b
 
 Ifall vi sätter dessa krav på våra funktioner så går det att visa att:
 
-$\mathbb{E}[\bar{X}\_t^2 + \bar{\bar{X}}_t^2] \leq C e^{CT^2}$ och $\mathbb{E}[|\bar{X}\_t^2 - \bar{\bar{X}}_t|] \leq C \Delta t_{\text{max}} e^{CT^2}$.
+$\mathbb{E}[\bar{X}\_t^2 + \bar{\bar{X}}_t^2] \leq C e^{CT^2}$ och $\mathbb{E}[| \bar{X}_t^2 - \bar{\bar{X}}^2_t|] \leq C \Delta t\_{\text{max}} e^{CT^2}$.
 
-M
+(Bevis kanske senare)
+
+Men eftersom att det gäller, så är sekvensen cauchy, vilket innebär att $X(t)$ är konvergent ty vi är i ett komplett rum. Alltså konvergerar vår approximation av $X(t)$.
+
+* Inte helt 100, men jag tror att skillnaden är precis samma sak som den diskretiserade skillnaden, eftersom att $X(t)$ punker för $t \in [t_{n}, t_{n+1})$ tar ut varandra för de två olika segementerna. Så då skulle det betyda att diskretiseringen konvergerar.
