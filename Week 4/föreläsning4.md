@@ -5,3 +5,5 @@ Låt $g : (0, + \infty) \times \mathbb{R} \rightarrow \mathbb{R}$ vara en begrä
 $$dg(t, X(t)) = \big( g(t, X(t))\partial_t + a(t, X(t)) \partial_x g(t, X(t)) + \frac{b^2(t, X(t))}{2} \partial_{xx}g(t, X(t)) \big) dt + b(t, X(t)) \partial_x g(t, X(t))dW(t)$$
 
 (Bevis)
+
+* Lägg till i flera dimensioner också (Atinas anteckningar) V5
